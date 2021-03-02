@@ -1,0 +1,1 @@
+# Erweiterung-der-Qlik-Sense-Data-Reload-Funktion
