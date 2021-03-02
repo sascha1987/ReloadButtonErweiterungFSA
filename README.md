@@ -4,8 +4,8 @@
 ## NDS HF Applikationsentwicklung
 
 <h1 align="center">
-  <h1="##">Diplomarbeit von S. Fluor</h1> |
-  <h1="##">NDS HF Applikationsentwicklung</h1> |
+  <p="##">Diplomarbeit von S. Fluor</p> |
+  <p="##">NDS HF Applikationsentwicklung</p> |
   <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
   <br><br>
 </h1>
