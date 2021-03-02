@@ -1,6 +1,5 @@
-# Erweiterung der Qlik Sense-Data-Reload Funktion
-
 <h1 align="center">
+  <p="#">Erweiterung der Qlik Sense-Data-Reload Funktionr</p>
   <p="##">Diplomarbeit von S. Fluor</p>
   <p="##">NDS HF Applikationsentwicklung</p>
   <br><br>
