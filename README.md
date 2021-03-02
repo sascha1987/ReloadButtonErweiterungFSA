@@ -3,6 +3,7 @@
 <h1 align="center">
   <p="##">Diplomarbeit von S. Fluor</p>
   <p="##">NDS HF Applikationsentwicklung</p>
+  <br><br>
   <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
   <br><br>
 </h1>
