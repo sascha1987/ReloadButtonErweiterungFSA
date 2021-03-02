@@ -1,6 +1,6 @@
 # Erweiterung der Qlik Sense-Data-Reload Funktion
 
-Dieses Repo wurde wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
+Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
 ## Demo
 
