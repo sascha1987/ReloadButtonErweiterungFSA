@@ -8,7 +8,7 @@
   <h1="##">NDS HF Applikationsentwicklung</h1> |
   <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
   <br><br>
-</p>
+</h1>
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
 ### Demo
