@@ -1,0 +1,10 @@
+{
+	"name": "Hello World",
+	"description": "Hello World example",
+  	"preview": "helloworld.png",
+	"type": "visualization",
+	"version": 1.0.0,
+	"author": "Sascha Fluor"
+}
+
+// Info -> Contains meta data for extensions
