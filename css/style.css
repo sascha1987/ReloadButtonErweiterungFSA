@@ -15,7 +15,8 @@
 }
 
 .btn-primary  {
-    background: #79bbff;
+    background: darkblue;
+    font-family: Impact;
 }
 
 .btn-danger  {
