@@ -1,6 +1,6 @@
 {
 	"name": "Reload Button FSA",
-	"description": "Hello World example",
+	"description": "Reload Button FSA",
   	"preview": "images/reload_button_fsa.png",
 	"type": "visualization",
 	"version": 1.0.0,
