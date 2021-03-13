@@ -1,4 +1,4 @@
-define(["jquery", "qlik", "text!./css/stlye.css"], function($, qlik, cssContent) {
+define(["jquery", "qlik", "text!./css/style.css"], function($, qlik, cssContent) {
 	$("<style>").html(cssContent).appendTo("head");
 
 	return {
