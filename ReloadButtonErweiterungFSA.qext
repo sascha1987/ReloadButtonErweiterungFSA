@@ -1,5 +1,5 @@
 {
-	"name": "Reload Button FSA",
+	"name": "ReloadButtonErweiterungFSA",
 	"description": "Erweiterung der Qlik Sense Data Reload Funktion",
   	"preview": "images/reload_button_fsa.png",
 	"type": "visualization",
