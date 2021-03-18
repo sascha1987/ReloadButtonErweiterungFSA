@@ -1,0 +1,23 @@
+{
+  "name": "erweiterung-der-qlik-sense-data-reload-funktion",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   <p=\"#\">Erweiterung der Qlik Sense-Data-Reload Funktion</p>   <p=\"##\">Diplomarbeit von S. Fluor</p>   <p=\"##\">NDS HF Applikationsentwicklung</p>   <br><br>   <img src=\"https://www.ibw.ch/themes/custom/ibw/logo.png\">   <br><br> </h1> Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.",
+  "main": "ReloadButtonFSA.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sascha1987/Erweiterung-der-Qlik-Sense-Data-Reload-Funktion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sascha1987/Erweiterung-der-Qlik-Sense-Data-Reload-Funktion/issues"
+  },
+  "homepage": "https://github.com/sascha1987/Erweiterung-der-Qlik-Sense-Data-Reload-Funktion#readme",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "node-requirejs": "^0.1.1"
+  }
+}
