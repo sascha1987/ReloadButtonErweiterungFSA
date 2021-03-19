@@ -2,8 +2,7 @@
 	"name": "ReloadButtonErweiterungFSA",
 	"description": "Erweiterung der Qlik Sense Data Reload Funktion",
 	"icon": "extension"
-  	"preview": "./images/reload_button_fsa.png",
 	"type": "visualization",
-	"version": 1.0.0,
+	"version": "1.0.0",
 	"author": "Sascha Fluor"
 }
