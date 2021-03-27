@@ -3,6 +3,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 	return {
 		paint: function ($element, layout) {
+
+			console.log('Data returned: ', layout.qHyperCube);
+
 			var app = qlik.currApp(this);
 
 			//Check if Qlik Sense Desktop or Server
