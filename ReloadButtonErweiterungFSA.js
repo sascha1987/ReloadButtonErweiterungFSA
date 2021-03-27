@@ -90,6 +90,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
 							$("#modal-content").fadeIn("slow");
+							console.log('Data returned 2: ', layout.qHyperCube);
 						});
 					}
 				});
