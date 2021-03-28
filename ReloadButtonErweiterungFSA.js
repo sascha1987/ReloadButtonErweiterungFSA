@@ -62,8 +62,8 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					// Open loader circle
 					$("#modal-overlay").append('<div id="loader" class="loader">Loading...</div>');
 
-					//console.log("isPersonalMode: " + isPersonalMode);
-					//console.log("isPartial: " + isPartial);
+					console.log("isPersonalMode: " + isPersonalMode);
+					console.log("isPartial: " + isPartial);
 
 					//Execute reload
 					if (isPersonalMode) {
@@ -78,9 +78,10 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-						// qlik.callRepository( '/qrs/app/' + appid + '/reload', 'POST' ).success( function ( reply ) {
-						//	$("#modal-overlay").remove()
-						// } );
+						 let output = qlik.callRepository( '/qrs/app/' + 'bb65721a-ec1c-4b12-baad-a4a06668a2f5' + '/reload', 'GET' ).success( function ( reply ) {
+							$("#modal-overlay").remove()
+							 console.log(output)
+						 } );
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							if(e) {
