@@ -18,7 +18,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 
 			// Display Extension Visualization
-			let html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			let html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html( html );
 
 			// Open modal
@@ -52,7 +52,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					event.preventDefault();
 
 					// Check if reload is partial
-					var isPartial = false;
+					let isPartial = false;
 					if($("#partial").prop('checked')) {
 						isPartial = true;
 					}
