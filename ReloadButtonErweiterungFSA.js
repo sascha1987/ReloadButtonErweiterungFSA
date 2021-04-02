@@ -4,21 +4,21 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
-			let app = qlik.currApp(this);
+			var app = qlik.currApp(this);
 			console.log(app);
 
 			//Check if Qlik Sense Desktop or Server
-			let isPersonalMode = true;
+			var isPersonalMode = true;
 
 			//Open WebSocket connection to the Qlik associative engine for global methods
-			let global = qlik.getGlobal();
+			var global = qlik.getGlobal();
 			global.isPersonalMode( function ( reply ) {
 				isPersonalMode = reply.qReturn;
 			});
 
 
 			// Display Extension Visualization
-			let html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html( html );
 
 			// Open modal
@@ -52,7 +52,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					event.preventDefault();
 
 					// Check if reload is partial
-					let isPartial = false;
+					var isPartial = false;
 					if($("#partial").prop('checked')) {
 						isPartial = true;
 					}
