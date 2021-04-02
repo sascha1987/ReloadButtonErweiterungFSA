@@ -7,6 +7,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			console.log('Data returned: ', layout.qHyperCube);
 
 			var app = qlik.currApp(this);
+			console.log(app);
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -78,11 +79,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-						 let output = qlik.callRepository( '/qrs/app/' + 'bb65721a-ec1c-4b12-baad-a4a06668a2f5' + '/reload', 'GET' ).success( function ( reply ) {
-							$("#modal-overlay").remove()
-							 console.log(output)
-						 } );
-						app.doReload( 0, isPartial, false).then(function(e) {
+						app.doReload( 0, isPartial, true).then(function(e) {
 							$("#loader").remove();
 							if(e) {
 								app.doSave();
@@ -91,8 +88,12 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
 							$("#modal-content").fadeIn("slow");
-							console.log('Data returned 2: ', layout.qHyperCube);
+
+
+							let app = qlik.openApp("")
+
 						});
+						
 					}
 				});
 			});
