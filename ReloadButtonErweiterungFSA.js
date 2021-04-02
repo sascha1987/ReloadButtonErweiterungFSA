@@ -4,21 +4,21 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
-			console.log('Data returned: ', layout.qHyperCube);
-
-			var app = qlik.currApp(this);
+			let app = qlik.currApp(this);
 			console.log(app);
 
 			//Check if Qlik Sense Desktop or Server
-			var isPersonalMode = true;
+			let isPersonalMode = true;
 
-			var global = qlik.getGlobal();
+			//Open WebSocket connection to the Qlik associative engine for global methods
+			let global = qlik.getGlobal();
 			global.isPersonalMode( function ( reply ) {
 				isPersonalMode = reply.qReturn;
 			});
 
+
 			// Display Extension Visualization
-			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			let html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html( html );
 
 			// Open modal
@@ -63,9 +63,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					// Open loader circle
 					$("#modal-overlay").append('<div id="loader" class="loader">Loading...</div>');
 
-					console.log("isPersonalMode: " + isPersonalMode);
-					console.log("isPartial: " + isPartial);
-
 					//Execute reload
 					if (isPersonalMode) {
 						app.doReload( 0, isPartial, false).then(function(e) {
@@ -89,8 +86,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 							$("#modal-content").fadeIn("slow");
 
-
-							let app = qlik.openApp("")
 
 						});
 						
