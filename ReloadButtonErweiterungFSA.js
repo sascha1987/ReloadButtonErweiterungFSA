@@ -16,10 +16,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				isPersonalMode = reply.qReturn;
 			});
 
-			var progress = global.getProgress({
-				"qRequestId": 1
-			});
-			console.log(progress);
+			var progress = qlik.getGlobal();
+			progress.getProgress(0)
+			console.log(progress)
 
 			// Display Extension Visualization
 			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
