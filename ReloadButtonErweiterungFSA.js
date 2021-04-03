@@ -4,8 +4,13 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
+			var startScript = now(1);
+			console.log(startScript)
+
 			var app = qlik.currApp(this);
+			console.log(app)
 			console.log(app.id);
+
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -19,6 +24,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var progress = qlik.getGlobal();
 			progress.getProgress(0)
 			console.log(progress)
+
 
 			// Display Extension Visualization
 			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
@@ -79,6 +85,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
+						console.timeStamp('start')
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							if(e) {
@@ -89,6 +96,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 							$("#modal-content").fadeIn("slow");
 						});
+						console.timeStamp('end')
 					}
 				});
 			});
