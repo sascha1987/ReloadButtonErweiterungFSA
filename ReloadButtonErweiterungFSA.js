@@ -85,7 +85,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-						console.timeStamp('start')
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							if(e) {
@@ -96,7 +95,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 							$("#modal-content").fadeIn("slow");
 						});
-						console.timeStamp('end')
 					}
 				});
 			});
