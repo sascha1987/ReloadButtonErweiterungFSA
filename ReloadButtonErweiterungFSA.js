@@ -5,7 +5,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 		paint: function ($element, layout) {
 
 			var app = qlik.currApp(this);
-			console.log(app);
+			console.log(app.id);
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
