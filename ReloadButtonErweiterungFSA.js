@@ -85,13 +85,17 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
+
+
+						var output;
+						console.time("concatenation")
+						for (var i = 1; i <= 100000; i++){
+							output += i;
+						}
+
 						app.doReload( 0, isPartial, false).then(function(e) {
 
-							var output;
-							console.time("concatenation")
-							for (var i = 1; i <= 100000; i++){
-								output += i;
-							}
+
 
 							$("#loader").remove();
 							if(e) {
