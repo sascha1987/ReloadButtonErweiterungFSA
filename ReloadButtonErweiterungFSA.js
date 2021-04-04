@@ -85,18 +85,13 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-
-
 						var output;
 						console.time("concatenation")
 						for (var i = 1; i <= 100000; i++){
 							output += i;
+							console.log(output)
 						}
-
 						app.doReload( 0, isPartial, false).then(function(e) {
-
-
-
 							$("#loader").remove();
 							if(e) {
 								app.doSave();
@@ -104,7 +99,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							} else {
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
-
 							$("#modal-content").fadeIn("slow");
 							console.timeEnd("concatenation")
 						});
