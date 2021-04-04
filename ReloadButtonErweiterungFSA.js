@@ -90,12 +90,43 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 //						for (var i = 1; i <= 100000; i++){
 //							output += i;
 //						}
-						var output = "";
-						var start = new Date().getTime();
 
-						for (var i = 1; i <= 100000; i++){
-							output += i;
+
+//						var output = "";
+//						var start = new Date().getTime();
+
+//						for (var i = 1; i <= 100000; i++){
+//							output += i;
+//						}
+
+						function setUpProgressBar (tag, startTime, endTime, update){
+							var timer
+							var element = document.querySelector(tag)  //$("#prog1").append('<div id="loader" class="loader">Loading...</div>')
+							var maxTime = endTime - startTime
+							element.maxTime = maxTime;
+
+							var setValue = function () {
+								var currentTime = new Date().getTime()
+								var elapsedTime = currentTime - startTime
+								if (elapsedTime >= maxTime){
+									elapsedTime = maxTime
+									window.clearTimeout(timer)
+								}
+								element.value = elapsedTime
+								var percentage = elapsedTime/max * 100
+								element.setAttribute("data-label", percentage.toFixed(2) + "%")
+							}
+							setValue()
+							timer = window.setInterval(setValue, update)
 						}
+
+						var start1 = new Date()
+						var end1 = new Date()
+						end1.setMinutes(end1.getMinutes() + 5)
+						setUpProgressBar("prog1", start1.getTime(), end1.getTime(), 100)
+						$("#modal-overlay").append('<progress id="prog1"></progress>');
+
+
 
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
@@ -107,9 +138,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 //							$("#modal-content").fadeIn("slow");
 //							var perfInSec = console.timeEnd("concatenation")
-							var end = new Date().getTime();
-							var time = end - start;
-							console.log("Time: " +time)
+//							var end = new Date().getTime();
+//							var time = end - start;
+//							console.log("Time: " +time)
 
 						});
 					}
