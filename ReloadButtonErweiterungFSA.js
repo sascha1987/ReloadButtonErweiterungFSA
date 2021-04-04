@@ -100,7 +100,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 							$("#modal-content").fadeIn("slow");
 							var perfInSec = console.timeEnd("concatenation")
-							console.log("Performance in seconds: " + perfInSec/1000+"s");
+							console.log(perfInSec);
 						});
 					}
 				});
