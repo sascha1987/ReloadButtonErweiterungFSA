@@ -4,8 +4,8 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
-			var startScript = now(1);
-			console.log(startScript)
+//			var startScript = now(1);
+//			console.log(startScript)
 
 			var app = qlik.currApp(this);
 			console.log(app)
@@ -21,9 +21,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				isPersonalMode = reply.qReturn;
 			});
 
-			var progress = qlik.getGlobal();
-			progress.getProgress(0)
-			console.log(progress)
+//			var progress = qlik.getGlobal();
+//			progress.getProgress(0)
+//			console.log(progress)
 
 
 			// Display Extension Visualization
