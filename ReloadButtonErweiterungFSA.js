@@ -122,12 +122,10 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						}
 
 						var start1 = new Date()
-						start1.setMinutes(start1.getMinutes() -60)
-						var end1 = new Date()
+//						var end1 = new Date()
 
-						end1.setMinutes(end1.getMinutes() + 1)
-						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
-
+//						end1.setMinutes(end1.getMinutes() + 5)
+//						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
 
@@ -144,6 +142,12 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 //							var end = new Date().getTime();
 //							var time = end - start;
 //							console.log("Time: " +time)
+
+							var end1 = new Date()
+							end1.setMinutes(end1.getMinutes() + 5)
+							setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+
+
 
 						});
 					}
