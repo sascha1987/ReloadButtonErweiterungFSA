@@ -106,7 +106,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							var timer;
 							var element = $(tag)//document.querySelector(tag)
 							var maxTime = endTime - startTime
-							element.maxTime = maxTime;
+//							element.maxTime = maxTime;
 
 							var setValue = function () {
 								var currentTime = new Date().getTime()
