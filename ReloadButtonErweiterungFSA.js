@@ -104,9 +104,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						function setUpProgressBar (tag, startTime, endTime, update){
 							$("#modal-overlay").append('<progress id="prog1"></progress>');
 							var timer;
-							var element = document.querySelector(tag)
+							var element = $("#prog1")//document.querySelector(tag)
 							var maxTime = endTime - startTime
-//							element.maxTime = maxTime;
+							element.maxTime = maxTime;
 
 							var setValue = function () {
 								var currentTime = new Date().getTime()
