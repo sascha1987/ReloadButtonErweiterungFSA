@@ -100,10 +100,11 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 //						}
 
 						function setUpProgressBar (tag, startTime, endTime, update){
-							var timer
+							$("#modal-overlay").append('<progress id="prog1"></progress>');
+							var timer;
 							var element = document.querySelector(tag)  //$("#prog1").append('<div id="loader" class="loader">Loading...</div>')
 							var maxTime = endTime - startTime
-							element.maxTime = maxTime;
+//							element.maxTime = maxTime;
 
 							var setValue = function () {
 								var currentTime = new Date().getTime()
@@ -123,9 +124,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						var start1 = new Date()
 						var end1 = new Date()
 						end1.setMinutes(end1.getMinutes() + 5)
-						setUpProgressBar("prog1", start1.getTime(), end1.getTime(), 100)
-						$("#modal-overlay").append('<progress id="prog1"></progress>');
-
+						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 100)
 
 
 						app.doReload( 0, isPartial, false).then(function(e) {
