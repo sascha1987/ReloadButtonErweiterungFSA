@@ -31,9 +31,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html( html );
 
-			var reloadTime = ReloadTime()
-			console.log("last reload: " + reloadTime)
-
 
 			// Open modal
 			$("#modal-open").click(function(event) {
@@ -129,7 +126,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						var start1 = new Date()
 						var end1 = new Date()
 
-						end1.setMinutes(end1.getMinutes() + 5)
+						end1.setMinutes(end1.getMinutes() + 1)
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
