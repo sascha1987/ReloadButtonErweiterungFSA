@@ -11,8 +11,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			console.log(app)
 			console.log(app.id);
 
-			var reloadTime = ReloadTime()
-			console.log("last reload: " + reloadTime)
+
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -31,6 +30,10 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			// Display Extension Visualization
 			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html( html );
+
+			var reloadTime = ReloadTime()
+			console.log("last reload: " + reloadTime)
+
 
 			// Open modal
 			$("#modal-open").click(function(event) {
