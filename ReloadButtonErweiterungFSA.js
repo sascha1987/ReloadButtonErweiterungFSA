@@ -115,13 +115,14 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								}
 								element.value = elapsedTime
 								var percentage = elapsedTime/maxTime * 100
-								element.setAttribute("data-label", percentage.toFixed(2) + "%")
+								element.setAttribute("data-label", percentage.toFixed(0) + "%")
 							}
 							setValue()
 							timer = window.setInterval(setValue, update)
 						}
 
 						var start1 = new Date()
+						start1.setMinutes(start1.getMinutes() -60)
 						var end1 = new Date()
 
 						end1.setMinutes(end1.getMinutes() + 1)
