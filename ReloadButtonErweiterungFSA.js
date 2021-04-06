@@ -137,6 +137,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
+							$("#prog1").remove();
 							if(e) {
 								app.doSave();
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload succeeded!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-success">Close</a></div></div>');
