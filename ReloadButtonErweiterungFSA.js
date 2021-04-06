@@ -102,11 +102,11 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 //						for (var i = 1; i <= 100000; i++){
 //							output += i;
 //						}
-						$("#modal-overlay").append('<progress id="prog1"></progress>');
+						$("#modal-overlay").append('<progress max="10" value="5" id="prog1"></progress>');
 						function setUpProgressBar (tag, startTime, endTime, update){
 
 							var timer;
-							var element = document.getElementsByTagName(tag)
+							var element = document.querySelector(tag)
 							var maxTime = endTime - startTime
 							element.maxTime = maxTime;
 
