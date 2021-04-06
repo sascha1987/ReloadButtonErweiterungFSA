@@ -144,7 +144,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							} else {
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
-//							$("#modal-content").fadeIn("slow");
+							$("#modal-content").fadeIn("slow");
 //							var perfInSec = console.timeEnd("concatenation")
 //							var end = new Date().getTime();
 //							var time = end - start;
