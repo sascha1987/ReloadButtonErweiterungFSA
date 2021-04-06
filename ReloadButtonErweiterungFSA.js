@@ -121,7 +121,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								var percentage = elapsedTime/maxTime * 100
 								element.setAttribute("data-label", percentage.toFixed(0) + "%")
 							}
-//							setValue()
+							setValue()
 //							timer = window.setInterval(setValue, update)
 //							return
 						}
