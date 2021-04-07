@@ -4,13 +4,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
-//			var startScript = now(1);
-//			console.log(startScript)
-
 			var app = qlik.currApp(this);
 			console.log(app)
 			console.log(app.id);
-			console.log("duration: " + app.duration)
 
 
 			//Check if Qlik Sense Desktop or Server
@@ -22,9 +18,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				isPersonalMode = reply.qReturn;
 			});
 
-//			var progress = qlik.getGlobal();
-//			progress.getProgress(0)
-//			console.log(progress)
 
 
 			// Display Extension Visualization
@@ -89,19 +82,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-//						var output;
-//						console.time("concatenation")
-//						for (var i = 1; i <= 100000; i++){
-//							output += i;
-//						}
 
+						var start = new Date().getTime();
 
-//						var output = "";
-//						var start = new Date().getTime();
-
-//						for (var i = 1; i <= 100000; i++){
-//							output += i;
-//						}
 						$("#modal-overlay").append('<progress id="prog1"></progress>');
 						function setUpProgressBar (tag, startTime, endTime, update){
 
@@ -129,9 +112,12 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 						var start1 = new Date()
 						var end1 = new Date()
+//						var time = ""
 
-						end1.setMinutes(end1.getMinutes() + 1)
+						end1.setMinutes(end1.getMinutes() + time)
+						console.log("Check if time is stored: " + time)
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+
 
 						// --> RELOAD THE APP::
 
@@ -145,16 +131,11 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
 							$("#modal-content").fadeIn("slow");
-//							var perfInSec = console.timeEnd("concatenation")
-//							var end = new Date().getTime();
-//							var time = end - start;
-//							console.log("Time: " +time)
-
-//							var end1 = new Date()
-//							end1.setMinutes(end1.getMinutes() + 5)
-//							setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						});
+						var end = new Date().getTime();
+						var time = end - start;
+						console.log("Time: " +time)
 					}
 				});
 			});
