@@ -114,8 +114,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						var end1 = new Date()
 //						var time = ""
 
-						end1.setMinutes(end1.getMinutes() + time)
-						console.log("Check if time is stored: " + time)
+						end1.setMinutes(end1.getMinutes() + 0.5)
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 
@@ -131,11 +130,11 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
 							$("#modal-content").fadeIn("slow");
-
+							var end = new Date().getTime();
+							var time = end - start;
+							console.log("Time: " +time)
 						});
-						var end = new Date().getTime();
-						var time = end - start;
-						console.log("Time: " +time)
+
 					}
 				});
 			});

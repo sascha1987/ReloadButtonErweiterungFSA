@@ -168,16 +168,16 @@ input[type=checkbox]:checked + label:before {
     text-shadow:0px 0px 3px #eee;
 }
 progress {
+    text-align: center;
+    height: 1.5em;
+    width: 100%;
     -webkit-appearance: none;
-    width: 50%;
-    height: 15px;
-    border: 1px solid #bea9a9;
-    -webkit-transform-style: flat;
+    border: none;
+    position:relative;
 }
-
 progress:before {
     content: attr(data-label);
-    font-size: 2em;
+    font-size: 0.8em;
     vertical-align: 0;
     position:absolute;
     left:0;
