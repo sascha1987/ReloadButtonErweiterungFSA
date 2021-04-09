@@ -132,7 +132,10 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							var time = end - start;
 							console.log("Time: " +time)
 
-
+							var fs = require('fs');
+							var data = fs.readFileSync('store-duration.json')
+							var duration = JSON.parse(data);
+							console.log(duration)
 
 						});
 
