@@ -112,11 +112,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 						var start1 = new Date()
 						var end1 = new Date()
-//						var time = ""
 
-						end1.setMinutes(end1.getMinutes() + 0.5)
+						end1.setMinutes(end1.getMinutes() + 1)
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
-
 
 						// --> RELOAD THE APP::
 
@@ -133,6 +131,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							var end = new Date().getTime();
 							var time = end - start;
 							console.log("Time: " +time)
+
+
+
 						});
 
 					}
