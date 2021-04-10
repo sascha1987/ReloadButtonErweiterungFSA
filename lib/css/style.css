@@ -178,6 +178,7 @@ input[type=checkbox]:checked + label:before {
 #prog1:before {
     content: attr(data-label);
     font-size: 2em;
+    color: white;
     vertical-align: 0;
     position:absolute;
     left:0;
