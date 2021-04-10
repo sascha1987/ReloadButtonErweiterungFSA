@@ -4,10 +4,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
+			// Get a reference to the current app
 			var app = qlik.currApp(this);
-			console.log(app)
 			console.log(app.id);
-
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -18,12 +17,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				isPersonalMode = reply.qReturn;
 			});
 
-
-
 			// Display Extension Visualization
-			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
-			$element.html( html );
-
+			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			$element.html(html);
 
 			// Open modal
 			$("#modal-open").click(function(event) {
@@ -83,14 +79,13 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						});
 					} else {
 
+						// Progressbar
 						var start = new Date().getTime();
-
 						$("#modal-overlay").append('<progress id="prog1"></progress>');
-						function setUpProgressBar (tag, startTime, endTime, update){
 
+						function setUpProgressBar (tag, startTime, endTime, update){
 							var timer;
 							var element = document.querySelector(tag)
-							console.log("element: " + element)
 							var maxTime = endTime - startTime
 							element.maxTime = maxTime;
 
@@ -129,12 +124,21 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 							$("#modal-content").fadeIn("slow");
 							var end = new Date().getTime();
-							var time = end - start;
-							console.log("Time: " +time)
+							var duration = end - start;
+							console.log("Duration: " +duration)
 
-							fetch('store-duration.json')
-								.then(response => response.json())
-								.then(json => console.log(json))
+//							fetch('store-duration.json')
+//								.then(response => response.json())
+//								.then(json => console.log(json))
+
+
+							var storeDuration = {
+								id: app.id,
+								durationTime: duration
+							}
+
+							localStorage.setItem("duration", JSON.stringify(storeDuration))
+							console.log(localStorage.getItem("duration"))
 
 						});
 
