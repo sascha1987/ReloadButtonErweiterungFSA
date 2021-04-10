@@ -17,7 +17,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			function getLastDurationTime(){
 				var reloadTime;
 				if (app.id === savedDuration.id) {
-					reloadTime = savedDuration.durationTime
+					reloadTime = savedDuration.durationTime/1000
 				} else {
 					reloadTime = 3
 				}
@@ -97,7 +97,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 						// Progressbar
 						var start = new Date().getTime();
-						$("#modal-overlay").append('<progress id="prog1"></progress>');
+						$("#modal-overlay").append('<div id="prog1"></div>');
 
 						function setUpProgressBar (tag, startTime, endTime, update){
 							var timer;
@@ -124,7 +124,8 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						var start1 = new Date()
 						var end1 = new Date()
 
-						end1.setMinutes(end1.getMinutes() + Math.round(getLastDurationTime()))
+						end1.setSeconds(end1.getSeconds() + Math.round(getLastDurationTime()))
+						console.log("TEST: " + getLastDurationTime())
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
