@@ -14,6 +14,16 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var savedDuration = JSON.parse(storageDurationString);
 			console.log("APP ID: ", savedDuration.id);
 
+			function getLastDurationTime(){
+				var reloadTime;
+				if (app.id === savedDuration.id) {
+					reloadTime = savedDuration.durationTime
+				} else {
+					reloadTime = 3
+				}
+				return reloadTime
+			}
+
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
 
@@ -114,7 +124,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						var start1 = new Date()
 						var end1 = new Date()
 
-						end1.setMinutes(end1.getMinutes() + 1)
+						end1.setMinutes(end1.getMinutes() + Math.round(getLastDurationTime()))
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
