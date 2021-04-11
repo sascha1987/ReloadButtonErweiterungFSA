@@ -21,11 +21,14 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html(html);
 
-			//Check if Data already stored
+			//Check if Data is stored
 			var storageDurationString = localStorage.getItem("duration");
 			console.log("String saved in local storage: ", storageDurationString)
 
-			//Store random time
+			var savedDurationID = JSON.parse(storageDurationString);
+			console.log("APP ID: ", savedDurationID.id);
+
+			//Store random time if local store null
 			if(localStorage.getItem("duration") === null){
 
 				var storeDuration = {
@@ -33,25 +36,21 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					durationTime: 60000
 				}
 
+				// stringify -> make an object with key "duration"
 				localStorage.setItem("duration", JSON.stringify(storeDuration))
 				console.log(localStorage.getItem("duration"))
 
-			}else{
-				var savedDuration = JSON.parse(storageDurationString);
-				console.log("APP ID: ", savedDuration.id);
 			}
 
 			function getLastDurationTime(){
 				var reloadTime;
-				if (app.id === savedDuration.id) {
-					reloadTime = savedDuration.durationTime/1000
+				if (app.id === savedDurationID.id) {
+					reloadTime = savedDurationID.durationTime/1000
 				} else {
 					reloadTime = 60000
 				}
 				return reloadTime
 			}
-
-
 
 			// Open modal
 			$("#modal-open").click(function(event) {
