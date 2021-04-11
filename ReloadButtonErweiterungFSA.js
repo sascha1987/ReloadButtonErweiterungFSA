@@ -8,27 +8,18 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var app = qlik.currApp(this);
 			console.log(app.id);
 
+			// Display Extension Visualization
+			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			$element.html(html);
+
+			//
 			var storageDurationString = localStorage.getItem("duration");
 			console.log("String saved in local storage: ", storageDurationString)
 
 			var savedDuration = JSON.parse(storageDurationString);
 			console.log("APP ID: ", savedDuration.id);
 
-
-
-			//Check if Qlik Sense Desktop or Server
-			var isPersonalMode = true;
-
-			//Open WebSocket connection to the Qlik associative engine for global methods
-			var global = qlik.getGlobal();
-			global.isPersonalMode( function ( reply ) {
-				isPersonalMode = reply.qReturn;
-			});
-
-			// Display Extension Visualization
-			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
-			$element.html(html);
-
+			//Get last Duration
 			function getLastDurationTime(){
 				var reloadTime;
 				if (app.id === savedDuration.id) {
@@ -38,6 +29,15 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				}
 				return reloadTime
 			}
+
+			//Check if Qlik Sense Desktop or Server
+			var isPersonalMode = true;
+
+			//Open WebSocket connection to the Qlik associative engine for global methods
+			var global = qlik.getGlobal();
+			global.isPersonalMode( function ( reply ) {
+				isPersonalMode = reply.qReturn;
+			});
 
 			// Open modal
 			$("#modal-open").click(function(event) {
