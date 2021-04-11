@@ -8,6 +8,30 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var app = qlik.currApp(this);
 			console.log(app.id);
 
+			var storageDurationString = localStorage.getItem("duration");
+			console.log("String saved in local storage: ", storageDurationString)
+
+			var storeDuration = {
+				id: app.id,
+				durationTime: 2
+			}
+
+			localStorage.setItem("duration", JSON.stringify(storeDuration))
+			console.log(localStorage.getItem("duration"))
+
+			var savedDuration = JSON.parse(storageDurationString);
+			console.log("APP ID: ", savedDuration.id);
+
+			function getLastDurationTime(){
+				var reloadTime;
+				if (app.id === savedDuration.id) {
+					reloadTime = savedDuration.durationTime/1000
+				} else {
+					reloadTime = 3
+				}
+				return reloadTime
+			}
+
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
 
@@ -20,28 +44,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			// Display Extension Visualization
 			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html(html);
-
-			var storageDurationString = localStorage.getItem("duration");
-			console.log("String saved in local storage: ", storageDurationString)
-
-			if (storageDurationString === null){
-				getLastDurationTime()
-			}else {
-				var savedDuration = JSON.parse(storageDurationString);
-				console.log("APP ID: ", savedDuration.id);
-			}
-
-			function getLastDurationTime(){
-				var reloadTime;
-				if (app.id === savedDuration.id) {
-					reloadTime = savedDuration.durationTime/1000
-				} else {
-					reloadTime = 3
-				}
-				return reloadTime
-			}
-
-
 
 			// Open modal
 			$("#modal-open").click(function(event) {
