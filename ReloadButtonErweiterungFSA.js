@@ -8,18 +8,16 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var app = qlik.currApp(this);
 			console.log(app.id);
 
-			// Display Extension Visualization
-			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
-			$element.html(html);
-
-			//
 			var storageDurationString = localStorage.getItem("duration");
 			console.log("String saved in local storage: ", storageDurationString)
 
-			var savedDuration = JSON.parse(storageDurationString);
-			console.log("APP ID: ", savedDuration.id);
+			if (storageDurationString === null){
+				getLastDurationTime()
+			}else {
+				var savedDuration = JSON.parse(storageDurationString);
+				console.log("APP ID: ", savedDuration.id);
+			}
 
-			//Get last Duration
 			function getLastDurationTime(){
 				var reloadTime;
 				if (app.id === savedDuration.id) {
@@ -38,6 +36,10 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			global.isPersonalMode( function ( reply ) {
 				isPersonalMode = reply.qReturn;
 			});
+
+			// Display Extension Visualization
+			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			$element.html(html);
 
 			// Open modal
 			$("#modal-open").click(function(event) {
