@@ -33,13 +33,13 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					durationTime: 60000
 				}
 
-				localStorage.setItem("duration", storeDuration)
+				localStorage.setItem("duration", JSON.stringify(storeDuration))
 				console.log(localStorage.getItem("duration"))
 
+			}else{
+				var savedDuration = JSON.parse(storageDurationString);
+				console.log("APP ID: ", savedDuration.id);
 			}
-
-			var savedDuration = localStorage.getItem("duration");
-			console.log("APP ID: ", savedDuration.id);
 
 			function getLastDurationTime(){
 				var reloadTime;
@@ -50,6 +50,8 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				}
 				return reloadTime
 			}
+
+
 
 			// Open modal
 			$("#modal-open").click(function(event) {
