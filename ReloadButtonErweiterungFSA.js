@@ -21,17 +21,16 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html(html);
 
-
+			//Check if Data already stored
 			var storageDurationString = localStorage.getItem("duration");
 			console.log("String saved in local storage: ", storageDurationString)
 
 			//Store random time
-
 			if(localStorage.getItem("duration") === null){
 
 				var storeDuration = {
 					id: app.id,
-					durationTime: 20000
+					durationTime: 60000
 				}
 
 				localStorage.setItem("duration", JSON.stringify(storeDuration))
@@ -47,7 +46,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				if (app.id === savedDuration.id) {
 					reloadTime = savedDuration.durationTime/1000
 				} else {
-					reloadTime = 20000
+					reloadTime = 60000
 				}
 				return reloadTime
 			}
@@ -172,7 +171,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 
 							localStorage.setItem("duration", JSON.stringify(storeDuration))
-							console.log(localStorage.getItem("duration"))
+							console.log("New duration" + localStorage.getItem("duration"))
 
 						});
 
