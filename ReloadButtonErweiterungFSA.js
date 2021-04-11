@@ -36,7 +36,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				localStorage.setItem("duration", JSON.stringify(storeDuration))
 				console.log(localStorage.getItem("duration"))
 
-			}else{
 				var savedDuration = JSON.parse(storageDurationString);
 				console.log("APP ID: ", savedDuration.id);
 			}
