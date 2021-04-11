@@ -28,28 +28,35 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			//Store random time
 			if(localStorage.getItem("duration") === null){
 
-				var storeDuration = {
+				var storeRandomDuration = {
 					id: app.id,
 					durationTime: 60000
 				}
 
-				localStorage.setItem("duration", JSON.stringify(storeDuration))
+				localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
 				console.log(localStorage.getItem("duration"))
 
-				var savedDuration = JSON.parse(storageDurationString);
-				console.log("APP ID: ", savedDuration.id);
+//				var savedDuration = JSON.parse(storageDurationString);
+//				console.log("APP ID: ", savedDuration.id);
+			}else {
+
+				var storeLastDuration = {
+					id: app.id,
+					durationTime: storeDuration.durationTime
+				}
+
+				localStorage.setItem("duration", JSON.stringify(storeLastDuration))
+				console.log(localStorage.getItem("duration"))
+
 			}
 
 			function getLastDurationTime(){
 				var reloadTime;
-				if (app.id === savedDuration.id) {
-					reloadTime = savedDuration.durationTime/1000
-				} else {
-					reloadTime = 60000
+				if (app.id === storeRandomDuration.id) {
+					reloadTime = storeLastDuration.durationTime/1000
 				}
 				return reloadTime
 			}
-
 
 
 			// Open modal
@@ -157,18 +164,16 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 							var end = new Date().getTime();
 							var duration = end - start;
-							console.log("Duration: " +duration)
+//							console.log("Duration: " +duration)
 
 //							fetch('store-duration.json')
 //								.then(response => response.json())
 //								.then(json => console.log(json))
 
-
 							var storeDuration = {
 								id: app.id,
 								durationTime: duration
 							}
-
 							localStorage.setItem("duration", JSON.stringify(storeDuration))
 							console.log("New duration" + localStorage.getItem("duration"))
 
