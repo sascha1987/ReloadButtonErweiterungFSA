@@ -38,12 +38,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				console.log(localStorage.getItem("duration"))
 
 			}else{
-				getLastDurationTime()
+				var savedDuration = JSON.parse(storageDurationString);
+				console.log("APP ID: ", savedDuration.id);
 			}
-
-
-			var savedDuration = JSON.parse(storageDurationString);
-			console.log("APP ID: ", savedDuration.id);
 
 			function getLastDurationTime(){
 				var reloadTime;
