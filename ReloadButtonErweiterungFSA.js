@@ -8,7 +8,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var app = qlik.currApp(this);
 			console.log(app.id);
 
-
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
 
@@ -27,13 +26,21 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			console.log("String saved in local storage: ", storageDurationString)
 
 			//Store random time
-			var storeDuration = {
-				id: app.id,
-				durationTime: 2000
+
+			if(localStorage.getItem("duration") === null){
+
+				var storeDuration = {
+					id: app.id,
+					durationTime: 20000
+				}
+
+				localStorage.setItem("duration", JSON.stringify(storeDuration))
+				console.log(localStorage.getItem("duration"))
+
+			}else{
+				getLastDurationTime()
 			}
 
-			localStorage.setItem("duration", JSON.stringify(storeDuration))
-			console.log(localStorage.getItem("duration"))
 
 			var savedDuration = JSON.parse(storageDurationString);
 			console.log("APP ID: ", savedDuration.id);
@@ -43,7 +50,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				if (app.id === savedDuration.id) {
 					reloadTime = savedDuration.durationTime/1000
 				} else {
-					reloadTime = 2000
+					reloadTime = 20000
 				}
 				return reloadTime
 			}
