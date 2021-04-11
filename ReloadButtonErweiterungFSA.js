@@ -14,15 +14,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			var savedDuration = JSON.parse(storageDurationString);
 			console.log("APP ID: ", savedDuration.id);
 
-			function getLastDurationTime(){
-				var reloadTime;
-				if (app.id === savedDuration.id) {
-					reloadTime = savedDuration.durationTime/1000
-				} else {
-					reloadTime = 3
-				}
-				return reloadTime
-			}
+
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -36,6 +28,16 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			// Display Extension Visualization
 			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
 			$element.html(html);
+
+			function getLastDurationTime(){
+				var reloadTime;
+				if (app.id === savedDuration.id) {
+					reloadTime = savedDuration.durationTime/1000
+				} else {
+					reloadTime = 3
+				}
+				return reloadTime
+			}
 
 			// Open modal
 			$("#modal-open").click(function(event) {
