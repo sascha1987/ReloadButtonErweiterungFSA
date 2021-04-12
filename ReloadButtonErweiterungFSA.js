@@ -1,4 +1,4 @@
-define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssContent) {
+define(["jquery", "qlik", "./ReloadButtonFunc", "text!./lib/css/style.css"], function($, qlik, ReloadButtonFunc, cssContent) {
 	$("<style>").html(cssContent).appendTo("head");
 
 	return {
@@ -38,16 +38,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 			}
 
-			function getLastDurationTime(){
-				var reloadTime;
-				var storedValue = JSON.parse(localStorage.getItem("duration"))
-				console.log("stored Value from function: " + storedValue)
-				if (app.id === storedValue.id) {
-					reloadTime = storedValue.durationTime/1000
-				}
-				return reloadTime
-			}
-
+			ReloadButtonFunc.getLastDurationTime();
 
 			// Open modal
 			$("#modal-open").click(function(event) {
@@ -93,7 +84,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 					//Execute reload
 					if (isPersonalMode) {
-
 
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
