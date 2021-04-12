@@ -40,20 +40,25 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 //				console.log("APP ID: ", savedDuration.id);
 			}else {
 
-				var storeLastDuration = {
-					id: app.id,
-					durationTime: storeDuration.durationTime
-				}
+				// -------> GET ITEM Method()
 
-				localStorage.setItem("duration", JSON.stringify(storeLastDuration))
-				console.log(localStorage.getItem("duration"))
+				var storedValue = JSON.parse(localStorage.getItem("duration"));
+				console.log("stored Value" + storedValue);
+
+				// var storeLastDuration = {
+				// 	id: app.id,
+				// 	durationTime: storeDuration.durationTime
+				// }
+				//
+				// localStorage.setItem("duration", JSON.stringify(storeLastDuration))
+				// console.log(localStorage.getItem("duration"))
 
 			}
 
 			function getLastDurationTime(){
 				var reloadTime;
-				if (app.id === storeRandomDuration.id) {
-					reloadTime = storeLastDuration.durationTime/1000
+				if (app.id === storedValue.id) {
+					reloadTime = storedValue.durationTime/1000
 				}
 				return reloadTime
 			}
