@@ -36,23 +36,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
 				console.log(localStorage.getItem("duration"))
 
-//				var savedDuration = JSON.parse(storageDurationString);
-//				console.log("APP ID: ", savedDuration.id);
-			}else {
-
-				// -------> GET ITEM Method()
-
-				var storedValue = JSON.parse(localStorage.getItem("duration"));
-				console.log("stored Value" + storedValue);
-
-				// var storeLastDuration = {
-				// 	id: app.id,
-				// 	durationTime: storeDuration.durationTime
-				// }
-				//
-				// localStorage.setItem("duration", JSON.stringify(storeLastDuration))
-				// console.log(localStorage.getItem("duration"))
-
 			}
 
 			function getLastDurationTime(){
@@ -158,7 +141,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
-
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							$("#prog1").remove();
@@ -171,12 +153,8 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 							var end = new Date().getTime();
 							var duration = end - start;
-//							console.log("Duration: " +duration)
 
-//							fetch('store-duration.json')
-//								.then(response => response.json())
-//								.then(json => console.log(json))
-
+							//Store measured time
 							var storeDuration = {
 								id: app.id,
 								durationTime: duration
