@@ -2,7 +2,7 @@
 //const chai = require('chai')
 //const ReloadButtonErweiterungFSA = require('../../ReloadButtonErweiterungFSA')
 import assert from 'assert'
-//import chai from 'chai'
+import chai from 'chai'
 import {describe, it, beforeEach, after} from 'mocha'
 //import {ReloadButtonErweiterungFSA} from "../../ReloadButtonErweiterungFSA.js";
 
