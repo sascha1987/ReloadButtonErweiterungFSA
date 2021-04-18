@@ -1,11 +1,9 @@
 language: node_js
 node_js:
-  - "15.14.0"
-addons:
-  apt:
-    packages:
-      - dpkg
-  chrome: stable
+  - "stable"
+
+install:
+  -npm install
+
 before_script:
-  - npm install
   - npm run test
