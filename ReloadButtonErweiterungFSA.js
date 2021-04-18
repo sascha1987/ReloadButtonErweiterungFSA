@@ -4,14 +4,9 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 	return {
 		paint: function ($element, layout) {
 
-//			var startScript = now(1);
-//			console.log(startScript)
-
+			// Get a reference to the current app
 			var app = qlik.currApp(this);
-			console.log(app)
 			console.log(app.id);
-			console.log("duration: " + app.duration)
-
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -22,14 +17,36 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 				isPersonalMode = reply.qReturn;
 			});
 
-//			var progress = qlik.getGlobal();
-//			progress.getProgress(0)
-//			console.log(progress)
-
-
 			// Display Extension Visualization
-			var html = html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
-			$element.html( html );
+			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>';
+			$element.html(html);
+
+			//Check if Data already stored
+			var storageDurationString = localStorage.getItem("duration");
+			console.log("String saved in local storage: ", storageDurationString)
+
+			//Store random time
+			if(localStorage.getItem("duration") === null){
+
+				var storeRandomDuration = {
+					id: app.id,
+					durationTime: 60000
+				}
+
+				localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
+				console.log(localStorage.getItem("duration"))
+
+			}
+
+			function getLastDurationTime(){
+				var reloadTime;
+				var storedValue = JSON.parse(localStorage.getItem("duration"))
+				console.log("stored Value from function: " + storedValue)
+				if (app.id === storedValue.id) {
+					reloadTime = storedValue.durationTime/1000
+				}
+				return reloadTime
+			}
 
 
 			// Open modal
@@ -89,25 +106,14 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-//						var output;
-//						console.time("concatenation")
-//						for (var i = 1; i <= 100000; i++){
-//							output += i;
-//						}
 
+						// Progressbar
+						var start = new Date().getTime();
+						$("#modal-overlay").append('<div id="prog1"></div>');
 
-//						var output = "";
-//						var start = new Date().getTime();
-
-//						for (var i = 1; i <= 100000; i++){
-//							output += i;
-//						}
-						$("#modal-overlay").append('<progress id="prog1"></progress>');
 						function setUpProgressBar (tag, startTime, endTime, update){
-
 							var timer;
 							var element = document.querySelector(tag)
-							console.log("element: " + element)
 							var maxTime = endTime - startTime
 							element.maxTime = maxTime;
 
@@ -130,11 +136,11 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 						var start1 = new Date()
 						var end1 = new Date()
 
-						end1.setMinutes(end1.getMinutes() + 1)
+						end1.setSeconds(end1.getSeconds() + Math.round(getLastDurationTime()))
+						console.log("TEST: " + getLastDurationTime())
 						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
-
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							$("#prog1").remove();
@@ -145,16 +151,19 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
 							$("#modal-content").fadeIn("slow");
-//							var perfInSec = console.timeEnd("concatenation")
-//							var end = new Date().getTime();
-//							var time = end - start;
-//							console.log("Time: " +time)
+							var end = new Date().getTime();
+							var duration = end - start;
 
-//							var end1 = new Date()
-//							end1.setMinutes(end1.getMinutes() + 5)
-//							setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+							//Store measured time
+							var storeDuration = {
+								id: app.id,
+								durationTime: duration
+							}
+							localStorage.setItem("duration", JSON.stringify(storeDuration))
+							console.log("New duration" + localStorage.getItem("duration"))
 
 						});
+
 					}
 				});
 			});
