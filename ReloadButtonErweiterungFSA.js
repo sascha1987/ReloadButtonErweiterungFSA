@@ -163,7 +163,6 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							console.log("New duration" + localStorage.getItem("duration"))
 
 						});
-
 					}
 				});
 			});
