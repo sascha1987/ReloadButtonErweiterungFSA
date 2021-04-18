@@ -8,7 +8,7 @@ import {describe, it, beforeEach, after} from 'mocha'
 
 describe('Basic Mocha String Test', function () {
     it('should return number of charachters in a string', function () {
-        assert.equal("Hello".length, 5);
+        assert.equal("Hello".length, 4);
     });
     it('should return first charachter of the string', function () {
         assert.equal("Hello".charAt(0), 'H');
