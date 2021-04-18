@@ -108,6 +108,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					} else {
 
 						// Progressbar
+						//start timer
 						var start = new Date().getTime();
 						$("#modal-overlay").append('<div id="prog1"></div>');
 
