@@ -11,5 +11,5 @@ before_script:
   # build javascript client application and serve it
   - npm run start &
   # give background tasks some time to start up
-  - sleep 7
+  - sleep 8
   # travis now automatically runs `npm run test`
