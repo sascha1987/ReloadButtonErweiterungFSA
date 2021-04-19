@@ -72,8 +72,6 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 
 					//Execute reload
 					if (isPersonalMode) {
-
-
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							if(e) {
@@ -85,19 +83,16 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 							$("#modal-content").fadeIn("slow");
 						});
 					} else {
-
-						// Progressbar
 						var start = new Date().getTime();
-						$("#modal-overlay").append('<div id="prog1"></div>');
-
 						var start1 = new Date()
 						var end1 = new Date()
 
+						// Progressbar
+						$("#modal-overlay").append('<div id="prog1"></div>');
 						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
 						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
 						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
-						// --> RELOAD THE APP::
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							$("#prog1").remove();
@@ -118,7 +113,6 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 							}
 							localStorage.setItem("duration", JSON.stringify(storeDuration))
 							console.log("New duration" + localStorage.getItem("duration"))
-
 						});
 					}
 				});
