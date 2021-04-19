@@ -1,5 +1,8 @@
 define( ['jquery','qlik'], function ( $, qlik) {
 
+    var app = qlik.currApp(this);
+    console.log(app.id);
+
     function checkIfLocalStorageisEmtpy(){
         if(localStorage.getItem("duration") === null){
 
