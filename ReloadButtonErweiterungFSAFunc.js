@@ -46,4 +46,9 @@ define( ['jquery','qlik'], function ( $, qlik) {
         return
     }
 
+    return {
+        checkIfLocalStorageisEmtpy: checkIfLocalStorageisEmtpy,
+        getLastDurationTime: getLastDurationTime,
+        setUpProgressBar: setUpProgressBar
+    }
 });
