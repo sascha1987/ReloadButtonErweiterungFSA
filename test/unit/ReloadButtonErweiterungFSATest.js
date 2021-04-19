@@ -19,12 +19,5 @@ describe('Basic Mocha String Test', function () {
         assert.equal("Hello".charAt(0), 'H');
     });
 
-
-    it('should open a modal', function (){
-
-        $(".qv-panel-sheet").append('<div id="modal-overlay"></div>')
-
-
-    })
 });
 
