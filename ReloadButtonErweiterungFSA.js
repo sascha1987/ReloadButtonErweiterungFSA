@@ -1,4 +1,4 @@
-define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssContent) {
+define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/style.css"], function($, qlik, ReloadButtonErweiterungFSAFunc, cssContent) {
 	$("<style>").html(cssContent).appendTo("head");
 
 	return {
@@ -26,28 +26,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			console.log("String saved in local storage: ", storageDurationString)
 
 			//Store random time
-			if(localStorage.getItem("duration") === null){
-
-				var storeRandomDuration = {
-					id: app.id,
-					durationTime: 60000
-				}
-
-				localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
-				console.log(localStorage.getItem("duration"))
-
-			}
-
-			function getLastDurationTime(){
-				var reloadTime;
-				var storedValue = JSON.parse(localStorage.getItem("duration"))
-				console.log("stored Value from function: " + storedValue)
-				if (app.id === storedValue.id) {
-					reloadTime = storedValue.durationTime/1000
-				}
-				return reloadTime
-			}
-
+			ReloadButtonErweiterungFSAFunc.checkIfLocalStorageisEmtpy()
 
 			// Open modal
 			$("#modal-open").click(function(event) {
@@ -108,38 +87,15 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 					} else {
 
 						// Progressbar
-						// set Timer
 						var start = new Date().getTime();
 						$("#modal-overlay").append('<div id="prog1"></div>');
-
-						function setUpProgressBar (tag, startTime, endTime, update){
-							var timer;
-							var element = document.querySelector(tag)
-							var maxTime = endTime - startTime
-							element.maxTime = maxTime;
-
-							var setValue = function () {
-								var currentTime = new Date().getTime()
-								var elapsedTime = currentTime - startTime
-								if (elapsedTime >= maxTime){
-									elapsedTime = maxTime
-									window.clearTimeout(timer)
-								}
-								element.value = elapsedTime
-								var percentage = elapsedTime/maxTime * 100
-								element.setAttribute("data-label", percentage.toFixed(0) + "%")
-							}
-							setValue()
-							timer = window.setInterval(setValue, update)
-							return
-						}
 
 						var start1 = new Date()
 						var end1 = new Date()
 
-						end1.setSeconds(end1.getSeconds() + Math.round(getLastDurationTime()))
+						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
 						console.log("TEST: " + getLastDurationTime())
-						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
 						app.doReload( 0, isPartial, false).then(function(e) {
