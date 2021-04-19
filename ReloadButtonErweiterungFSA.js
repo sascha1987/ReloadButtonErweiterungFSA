@@ -72,8 +72,19 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 
 					//Execute reload
 					if (isPersonalMode) {
+						var start = new Date().getTime();
+						var start1 = new Date()
+						var end1 = new Date()
+
+						// Progressbar
+						$("#modal-overlay").append('<div id="prog1"></div>');
+						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
+						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
+						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
+							$("#prog1").remove();
 							if(e) {
 								app.doSave();
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload succeeded!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-success">Close</a></div></div>');
@@ -81,6 +92,16 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
 							}
 							$("#modal-content").fadeIn("slow");
+							var end = new Date().getTime();
+							var duration = end - start;
+
+							//Store measured time
+							var storeDuration = {
+								id: app.id,
+								durationTime: duration
+							}
+							localStorage.setItem("duration", JSON.stringify(storeDuration))
+							console.log("New duration" + localStorage.getItem("duration"))
 						});
 					} else {
 						var start = new Date().getTime();
