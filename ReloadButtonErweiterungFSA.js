@@ -94,7 +94,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 						var end1 = new Date()
 
 						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
-						console.log("TEST: " + getLastDurationTime())
+						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
 						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						// --> RELOAD THE APP::
