@@ -1,4 +1,14 @@
-define( ['jquery','qlik'], function ( $, qlik) {
+/* A fake Qlik module must be loaded for unit tests, so that the tests work without Qlik Engine:
+
+1. Delete 'qlik' in define statement
+2. Add './test/unit/qlik'
+3. Run npm test in terminal
+
+-->
+
+ */
+
+define( ['jquery','./test/unit/qlik'], function ($, qlik) {
 
     var app = qlik.currApp(this);
     console.log(app.id);
@@ -12,7 +22,7 @@ define( ['jquery','qlik'], function ( $, qlik) {
             }
 
             localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
-            console.log(localStorage.getItem("duration"))
+            return JSON.parse(localStorage.getItem("duration"));
 
         }
     }
