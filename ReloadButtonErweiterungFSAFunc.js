@@ -8,7 +8,7 @@
 
  */
 
-define( ['jquery','./test/unit/qlik'], function ($, qlik) {
+define( ['jquery','qlik'], function ($, qlik) {
 
     var app = qlik.currApp(this);
     console.log(app.id);
