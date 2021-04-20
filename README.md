@@ -15,4 +15,15 @@ Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funk
 2. Test
 3. Test
 
+### Tests
+Qlik Sense Sourcecode wird immer über die "define" Funktion eingeleitet. Define ist ein Konzept von RequireJS, um Abhängigkeiten im Javascript File zu definieren. In der Qlik Sense Umgebung benötigt es immer das Argument "qlik", um alle benötigten Abhängigktein zu laden, ansonsten funktioniert der Code nicht ordnungsgemäss.
+Um die Unit Tests lokal starten zu können, muss man ein fake Modul laden. Dies muss dem Define statement als Parameter übergeben werden.
+Aus diesem Grund werden auch die Tests der CI Pipeline nicht grün.
+
+Vorgehen Tests:
+1. Entfernen von "qlik" im define Statement
+2. Hinzüfugen von "./test/unit/qlik"
+3. npm run test im Terminal starten
+
+
 ### Author
