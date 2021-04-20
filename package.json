@@ -2,11 +2,9 @@
   "name": "erweiterung-der-qlik-sense-data-reload-funktion",
   "version": "1.0.0",
   "description": "<h1 align=\"center\">   <p=\"#\">Erweiterung der Qlik Sense-Data-Reload Funktion</p>   <p=\"##\">Diplomarbeit von S. Fluor</p>   <p=\"##\">NDS HF Applikationsentwicklung</p>   <br><br>   <img src=\"https://www.ibw.ch/themes/custom/ibw/logo.png\">   <br><br> </h1> Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.",
-  "type": "module",
   "main": "ReloadButtonErweiterungFSA.js",
   "scripts": {
-    "test": "npm run test:unit",
-    "test:unit": "mocha --recursive test/**/**.js"
+    "test": "mocha -r mock-local-storage -r amd-loader --recursive test/**/**.js"
   },
   "repository": {
     "type": "git",
@@ -23,10 +21,12 @@
     "@babel/core": "^7.13.15",
     "@babel/polyfill": "7.12.1",
     "@babel/register": "^7.12.10",
+    "amd-loader": "^0.0.8",
     "assert": "2.0.0",
     "chai": "^4.3.4",
     "jquery": "^3.6.0",
     "mocha": "^8.3.2",
+    "mock-local-storage": "^1.1.17",
     "node": "^15.14.0",
     "node-requirejs": "^0.1.1",
     "yaml": "^1.10.2"
@@ -43,6 +43,7 @@
     "chromedriver": "88.0.0",
     "fs": "^0.0.1-security",
     "mocha": "8.2.1",
-    "selenium-webdriver": "4.0.0-alpha.8"
+    "selenium-webdriver": "4.0.0-alpha.8",
+    "should": "^13.2.3"
   }
 }

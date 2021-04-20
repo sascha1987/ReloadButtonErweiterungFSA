@@ -1,4 +1,4 @@
-define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssContent) {
+define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/style.css"], function($, qlik, ReloadButtonErweiterungFSAFunc, cssContent) {
 	$("<style>").html(cssContent).appendTo("head");
 
 	return {
@@ -26,28 +26,7 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 			console.log("String saved in local storage: ", storageDurationString)
 
 			//Store random time
-			if(localStorage.getItem("duration") === null){
-
-				var storeRandomDuration = {
-					id: app.id,
-					durationTime: 60000
-				}
-
-				localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
-				console.log(localStorage.getItem("duration"))
-
-			}
-
-			function getLastDurationTime(){
-				var reloadTime;
-				var storedValue = JSON.parse(localStorage.getItem("duration"))
-				console.log("stored Value from function: " + storedValue)
-				if (app.id === storedValue.id) {
-					reloadTime = storedValue.durationTime/1000
-				}
-				return reloadTime
-			}
-
+			ReloadButtonErweiterungFSAFunc.checkIfLocalStorageisEmtpy()
 
 			// Open modal
 			$("#modal-open").click(function(event) {
@@ -93,55 +72,16 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 
 					//Execute reload
 					if (isPersonalMode) {
-
-
-						app.doReload( 0, isPartial, false).then(function(e) {
-							$("#loader").remove();
-							if(e) {
-								app.doSave();
-								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload succeeded!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-success">Close</a></div></div>');
-							} else {
-								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
-							}
-							$("#modal-content").fadeIn("slow");
-						});
-					} else {
-
-						// Progressbar
-						// set Timer
 						var start = new Date().getTime();
-						$("#modal-overlay").append('<div id="prog1"></div>');
-
-						function setUpProgressBar (tag, startTime, endTime, update){
-							var timer;
-							var element = document.querySelector(tag)
-							var maxTime = endTime - startTime
-							element.maxTime = maxTime;
-
-							var setValue = function () {
-								var currentTime = new Date().getTime()
-								var elapsedTime = currentTime - startTime
-								if (elapsedTime >= maxTime){
-									elapsedTime = maxTime
-									window.clearTimeout(timer)
-								}
-								element.value = elapsedTime
-								var percentage = elapsedTime/maxTime * 100
-								element.setAttribute("data-label", percentage.toFixed(0) + "%")
-							}
-							setValue()
-							timer = window.setInterval(setValue, update)
-							return
-						}
-
 						var start1 = new Date()
 						var end1 = new Date()
 
-						end1.setSeconds(end1.getSeconds() + Math.round(getLastDurationTime()))
-						console.log("TEST: " + getLastDurationTime())
-						setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+						// Progressbar
+						$("#modal-overlay").append('<div id="prog1"></div>');
+						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
+						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
+						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
-						// --> RELOAD THE APP::
 						app.doReload( 0, isPartial, false).then(function(e) {
 							$("#loader").remove();
 							$("#prog1").remove();
@@ -162,7 +102,38 @@ define(["jquery", "qlik", "text!./lib/css/style.css"], function($, qlik, cssCont
 							}
 							localStorage.setItem("duration", JSON.stringify(storeDuration))
 							console.log("New duration" + localStorage.getItem("duration"))
+						});
+					} else {
+						var start = new Date().getTime();
+						var start1 = new Date()
+						var end1 = new Date()
 
+						// Progressbar
+						$("#modal-overlay").append('<div id="prog1"></div>');
+						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
+						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
+						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
+
+						app.doReload( 0, isPartial, false).then(function(e) {
+							$("#loader").remove();
+							$("#prog1").remove();
+							if(e) {
+								app.doSave();
+								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload succeeded!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-success">Close</a></div></div>');
+							} else {
+								$("#modal-overlay").append('<div id="modal-content" style="display:none"><div id="modal-message"><h2>Reload failed!</h2></div><br><div id="modal-checkbox"><a href="#" id="modal-close" class="btn btn-danger">Close</a></div></div>');
+							}
+							$("#modal-content").fadeIn("slow");
+							var end = new Date().getTime();
+							var duration = end - start;
+
+							//Store measured time
+							var storeDuration = {
+								id: app.id,
+								durationTime: duration
+							}
+							localStorage.setItem("duration", JSON.stringify(storeDuration))
+							console.log("New duration" + localStorage.getItem("duration"))
 						});
 					}
 				});

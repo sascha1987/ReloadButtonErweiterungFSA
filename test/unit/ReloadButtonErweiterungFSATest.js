@@ -1,16 +1,14 @@
-//const assert = require ('assert')
-//const chai = require('chai')
-//const ReloadButtonErweiterungFSA = require('../../ReloadButtonErweiterungFSA')
-import assert from 'assert'
-import chai from 'chai'
-import {describe, it, beforeEach, after} from 'mocha'
-//import {ReloadButtonErweiterungFSA} from "../../ReloadButtonErweiterungFSA.js";
+var ReloadButtonErweiterungFSAFunc = require('../../ReloadButtonErweiterungFSAFunc')
 
-describe('Basic Mocha String Test', function () {
-    it('should return number of charachters in a string', function () {
-        assert.equal("Hello".length, 5);
-    });
-    it('should return first charachter of the string', function () {
-        assert.equal("Hello".charAt(0), 'H');
+const chai = require('chai');
+const should = chai.should()
+
+describe('checkIfLocalStorageisEmtpy', function() {
+    describe('#checkIfLocalStorageisEmtpy returns a object', function() {
+        it('it should return an object', function() {
+
+            ReloadButtonErweiterungFSAFunc.checkIfLocalStorageisEmtpy().should.be.an('object');
+
+        });
     });
 });
