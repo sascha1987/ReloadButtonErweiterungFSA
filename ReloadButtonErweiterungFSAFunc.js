@@ -43,13 +43,13 @@ define( ["jquery","qlik"], function ($, qlik) {
         var maxTime = endTime - startTime
         element.maxTime = maxTime
 
-        setValue(startTime, maxTime, timer)
-
         timer = window.setInterval(setValue, update)
+        setValue(startTime, maxTime, timer, element, tag)
         return
     }
 
-     function setValue (startTime, maxTime, timer, element) {
+     function setValue (startTime, maxTime, timer, element, tag) {
+        var element = document.querySelector(tag)
         var currentTime = new Date().getTime()
         var elapsedTime = currentTime - startTime
         if (elapsedTime >= maxTime){
