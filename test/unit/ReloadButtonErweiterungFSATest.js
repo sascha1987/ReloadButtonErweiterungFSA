@@ -25,7 +25,7 @@ describe('setUpProgressBar', function() {
     describe('#setUpProgressBar returns value', function() {
         it('it should return a number', function() {
 
-            return ReloadButtonErweiterungFSAFunc.setUpProgressBar(setValue)
+            return ReloadButtonErweiterungFSAFunc.setUpProgressBar.should.be.equal(45);
         });
     });
 });
