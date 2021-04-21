@@ -43,7 +43,7 @@ define( ["jquery","./test/unit/qlik"], function ($, qlik) {
         var maxTime = endTime - startTime
         element.maxTime = maxTime
 
-        setValue()
+        setValue(startTime, maxTime, timer)
         timer = window.setInterval(setValue, update)
         return maxTime
     }
