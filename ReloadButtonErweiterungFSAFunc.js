@@ -48,7 +48,7 @@ define( ["jquery","./test/unit/qlik"], function ($, qlik) {
         return maxTime
     }
 
-    var setValue = function (startTime, maxTime, timer) {
+     function setValue (startTime, maxTime, timer) {
         var currentTime = new Date().getTime()
         var elapsedTime = currentTime - startTime
         if (elapsedTime >= maxTime){
