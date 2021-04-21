@@ -8,7 +8,7 @@
 
  */
 
-define( ["jquery","qlik"], function ($, qlik) {
+define( ["jquery","./test/unit/qlik"], function ($, qlik) {
 
     var app = qlik.currApp(this);
     console.log(app.id);
@@ -37,31 +37,37 @@ define( ["jquery","qlik"], function ($, qlik) {
         return reloadTime
     }
 
+    function setValue() {
+        var currentTime = new Date().getTime()
+        var timer
+        var startTime
+        var endTime
+        var maxTime = endTime - startTime
+        var elapsedTime = currentTime - startTime
+        if (elapsedTime >= maxTime){
+            elapsedTime = maxTime
+            window.clearTimeout(timer)
+        }
+        element.value = elapsedTime
+        var percentage = elapsedTime/maxTime * 100
+        element.setAttribute("data-label", percentage.toFixed(0) + "%")
+    }
+
     function setUpProgressBar (tag, startTime, endTime, update){
-        var timer;
+        var timer
         var element = document.querySelector(tag)
         var maxTime = endTime - startTime
-        element.maxTime = maxTime;
+        element.maxTime = maxTime
 
-        var setValue = function () {
-            var currentTime = new Date().getTime()
-            var elapsedTime = currentTime - startTime
-            if (elapsedTime >= maxTime){
-                elapsedTime = maxTime
-                window.clearTimeout(timer)
-            }
-            element.value = elapsedTime
-            var percentage = elapsedTime/maxTime * 100
-            element.setAttribute("data-label", percentage.toFixed(0) + "%")
-        }
         setValue()
         timer = window.setInterval(setValue, update)
-        return
+        return timer
     }
 
     return {
         checkIfLocalStorageisEmtpy: checkIfLocalStorageisEmtpy,
         getLastDurationTime: getLastDurationTime,
-        setUpProgressBar: setUpProgressBar
+        setUpProgressBar: setUpProgressBar,
+        setValue: setValue
     }
 });
