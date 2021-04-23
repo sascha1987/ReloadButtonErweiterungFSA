@@ -38,12 +38,12 @@ define( ["jquery","qlik"], function ($, qlik) {
     }
 
     function setUpProgressBar (tag, startTime, endTime, update){
-        var timer
+        var timer = ""
         var element = document.querySelector(tag)
         var maxTime = endTime - startTime
         element.maxTime = maxTime
 
-        timer = window.setInterval(setValue, update)
+        timer = window.setInterval(setValue(startTime, maxTime, timer, element, tag), update)
         setValue(startTime, maxTime, timer, element, tag)
         return
     }
