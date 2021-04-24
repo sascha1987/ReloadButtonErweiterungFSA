@@ -55,7 +55,7 @@ Um die Unit Tests lokal starten zu können, muss man ein fake Modul laden. Dies 
 Aus diesem Grund werden auch die Tests der CI Pipeline nicht grün.
 
 Vorgehen Tests:
-1. Entfernen von "qlik" im define Statement
+1. Entfernen von "qlik" im define Statement im File ReloadButtonErweiterungFSAFunc.js
 2. Hinzüfugen von "./test/unit/qlik"
 3. npm run test im Terminal starten
 
