@@ -6,7 +6,7 @@
   <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
   <br><br>
   <p="##">Im Auftrag der</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg" alt="Logo" height="199" width="620">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg" alt="Logo" height="179" width="600">
   <br><br>
 </h1>
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
@@ -25,7 +25,7 @@ https://www.qlik.com/de-de/trial/qlik-sense-business
 
 ![image](https://user-images.githubusercontent.com/54737475/115962619-9278f500-a51c-11eb-860f-5e23b6e29ddc.png)
 
-###### 3. Gehe auf der linken Seite auf Erweiterungen:
+###### 3. Dann auf der linken Seite auf Erweiterungen:
 
 ![image](https://user-images.githubusercontent.com/54737475/115962690-e2f05280-a51c-11eb-9ebd-f93f61fd3574.png)
 
@@ -33,7 +33,7 @@ https://www.qlik.com/de-de/trial/qlik-sense-business
 
 ![image](https://user-images.githubusercontent.com/54737475/115962739-10d59700-a51d-11eb-967d-0c544372a477.png)
 
-###### 5. Gehe zurück auf die Data Analytics Startseite und gehe auf Beispieldaten analysieren:
+###### 5. Gehe zurück auf die Data Analytics Startseite und dann auf Beispieldaten analysieren:
 
 ![image](https://user-images.githubusercontent.com/54737475/115963378-5004e780-a51f-11eb-8c64-1b0af5202a5d.png)
 
