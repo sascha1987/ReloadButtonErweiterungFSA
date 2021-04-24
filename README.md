@@ -8,7 +8,7 @@
 </h1>
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
-### Demo
+
 
 ### Install
 1. Test
@@ -24,6 +24,12 @@ Vorgehen Tests:
 1. Entfernen von "qlik" im define Statement
 2. Hinzüfugen von "./test/unit/qlik"
 3. npm run test im Terminal starten
+
+
+### Demo
+
+https://user-images.githubusercontent.com/54737475/115962449-c6074f80-a51b-11eb-9644-d87882b04095.mov
+
 
 
 ### Author
