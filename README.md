@@ -6,9 +6,7 @@
   <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
   <br><br>
   <p="##">Im Auftrag der</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg"
-     width="400" 
-     height="500">
+  <img src="![image](https://user-images.githubusercontent.com/54737475/115964171-73319600-a523-11eb-9dff-304ce49bd2b4.png)"
   <br><br>
 </h1>
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
