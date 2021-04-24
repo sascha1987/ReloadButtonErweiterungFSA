@@ -6,7 +6,6 @@
   <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
   <br><br>
   <p="##">Im Auftrag der</p>
-  <br><br>
   <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg"
      width="400" 
      height="500">
