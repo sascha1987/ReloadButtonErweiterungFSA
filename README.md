@@ -7,8 +7,10 @@
   <br><br>
   <p="##">Im Auftrag der</p>
   <br><br>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg">
-  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg"
+     width="400" 
+     height="500">
+  <br><br>
 </h1>
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
