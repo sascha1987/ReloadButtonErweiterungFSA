@@ -19,7 +19,7 @@ Diese Anleitung dient lediglich zu Testzwecken und wiederspiegelt nicht die Erwe
 
 ###### 1. Registriere dich auf:
 
-https://www.qlik.com/us/lp/ppc/qlik-sense-business/brand?CampaignID=7013z000000it5d&ppc_id=5euM30D4&kw=qlik%20sense%20free%20trial&utm_content=s5euM30D4_pcrid_406854457596_pmt_e_pkw_qlik%20sense%20free%20trial_pdv_c_mslid__pgrid_14168948890_ptaid_aud-706675959562:kwd-543761206509&utm_source=google&utm_medium=cpc&utm_campaign=Qlik_Switzerland_Google_Brand_DA_Brand_EN&utm_term=qlik%20sense%20free%20trial&gclid=CjwKCAjwg4-EBhBwEiwAzYAlsri2V4X9jx7iaI1FhoVScIOK607voYPQtc-lF3pr38zd0Ek_Sl_PxBoC6nMQAvD_BwE
+https://www.qlik.com/de-de/trial/qlik-sense-business
 
 ###### 2. Gehe oben links auf die Management Konsole:
 
