@@ -25,7 +25,7 @@ https://www.qlik.com/de-de/trial/qlik-sense-business
 
 ![image](https://user-images.githubusercontent.com/54737475/115962619-9278f500-a51c-11eb-860f-5e23b6e29ddc.png)
 
-###### 3. Dann auf der linken Seite auf Erweiterungen:
+###### 3. Auf der linken Seite auf Erweiterungen:
 
 ![image](https://user-images.githubusercontent.com/54737475/115962690-e2f05280-a51c-11eb-9ebd-f93f61fd3574.png)
 
@@ -45,7 +45,7 @@ https://www.qlik.com/de-de/trial/qlik-sense-business
 
 ![image](https://user-images.githubusercontent.com/54737475/115963523-f94bdd80-a51f-11eb-8e9e-15ce1340e4fd.png)
 
-###### 8. Mit erneutem klicken auf Arbeitsblatt bearbeiten kannst du den bearbeitungs Modus verlassen. Nun kannst du auf den Reload Button klicken. Es wird versucht ein Web Socket Connection mit der Qlik Sense Associate Engine herzustellen. Dies kann für test Zwecke über die Chrome Devtools auskommentiert werden.
+###### 8. Mit erneutem klicken auf Arbeitsblatt bearbeiten kannst du den bearbeitungs Modus verlassen. Dann auf den Reload Button klicken. Es wird versucht eine Web Socket Connection mit der Qlik Sense Associate Engine herzustellen. Dies kann für Testzwecke über die Chrome Devtools auskommentiert werden.
 
 ![image](https://user-images.githubusercontent.com/54737475/115963712-e554ab80-a520-11eb-87f8-dcbc541a245a.png)
 
