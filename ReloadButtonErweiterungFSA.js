@@ -6,7 +6,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 
 			// Get a reference to the current app
 			var app = qlik.currApp(this);
-			console.log(app.id);
+//			console.log(app.id);
 
 			//Check if Qlik Sense Desktop or Server
 			var isPersonalMode = true;
@@ -23,7 +23,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 
 			//Check if Data already stored
 			var storageDurationString = localStorage.getItem("duration");
-			console.log("String saved in local storage: ", storageDurationString)
+//			console.log("String saved in local storage: ", storageDurationString)
 
 			//Store random time
 			ReloadButtonErweiterungFSAFunc.checkIfLocalStorageisEmtpy()
@@ -79,7 +79,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 						// Progressbar
 						$("#modal-overlay").append('<div id="prog1"></div>');
 						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
-						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
+//						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
 						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						app.doReload( 0, isPartial, false).then(function(e) {
@@ -101,7 +101,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 								durationTime: duration
 							}
 							localStorage.setItem("duration", JSON.stringify(storeDuration))
-							console.log("New duration" + localStorage.getItem("duration"))
+//							console.log("New duration" + localStorage.getItem("duration"))
 						});
 					} else {
 						var start = new Date().getTime();
@@ -111,7 +111,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 						// Progressbar
 						$("#modal-overlay").append('<div id="prog1"></div>');
 						end1.setSeconds(end1.getSeconds() + Math.round(ReloadButtonErweiterungFSAFunc.getLastDurationTime()))
-						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
+//						console.log("TEST: " + ReloadButtonErweiterungFSAFunc.getLastDurationTime())
 						ReloadButtonErweiterungFSAFunc.setUpProgressBar("#prog1", start1.getTime(), end1.getTime(), 1000)
 
 						app.doReload( 0, isPartial, false).then(function(e) {
@@ -133,7 +133,7 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 								durationTime: duration
 							}
 							localStorage.setItem("duration", JSON.stringify(storeDuration))
-							console.log("New duration" + localStorage.getItem("duration"))
+//							console.log("New duration" + localStorage.getItem("duration"))
 						});
 					}
 				});

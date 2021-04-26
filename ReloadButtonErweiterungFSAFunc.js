@@ -1,7 +1,7 @@
 /* A fake Qlik module must be loaded for unit tests, so that the tests work without Qlik Engine:
 
 1. Delete 'qlik' in define statement
-2. Add './test/unit/qlik'
+2. Add './test/unit/Qlik'
 3. Run npm test in terminal
 
 -->
@@ -11,7 +11,7 @@
 define( ['jquery','qlik'], function ($, qlik) {
 
     var app = qlik.currApp(this);
-    console.log(app.id);
+//    console.log(app.id);
 
     function checkIfLocalStorageisEmtpy(){
         if(localStorage.getItem("duration") === null){
@@ -30,7 +30,7 @@ define( ['jquery','qlik'], function ($, qlik) {
     function getLastDurationTime(){
         var reloadTime;
         var storedValue = JSON.parse(localStorage.getItem("duration"))
-        console.log("stored Value from function: " + storedValue)
+//        console.log("stored Value from function: " + storedValue)
         if (app.id === storedValue.id) {
             reloadTime = storedValue.durationTime/1000
         }
