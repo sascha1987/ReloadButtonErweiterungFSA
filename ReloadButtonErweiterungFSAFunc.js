@@ -8,7 +8,7 @@
 
  */
 
-define( ['jquery','qlik'], function ($, qlik) {
+define( ['jquery','./test/unit/Qlik'], function ($, qlik) {
 
     var app = qlik.currApp(this);
 //    console.log(app.id);
@@ -18,7 +18,7 @@ define( ['jquery','qlik'], function ($, qlik) {
 
             var storeRandomDuration = {
                 id: app.id,
-                durationTime: 60000
+                durationTime: 300000
             }
 
             localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
