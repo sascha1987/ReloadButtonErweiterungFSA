@@ -1,14 +1,14 @@
 /* A fake Qlik module must be loaded for unit tests, so that the tests work without Qlik Engine:
 
-1. Delete 'qlik' in define statement
-2. Add './test/unit/Qlik'
+1. Delete "qlik" in define statement
+2. Add "./test/unit/Qlik"
 3. Run npm test in terminal
 
 -->
 
  */
 
-define( ['jquery','qlik'], function ($, qlik) {
+define( ["jquery","qlik"], function ($, qlik) {
 
     var app = qlik.currApp(this)
 

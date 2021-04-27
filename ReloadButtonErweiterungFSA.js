@@ -20,16 +20,12 @@ define(["jquery", "qlik","./ReloadButtonErweiterungFSAFunc" , "text!./lib/css/st
 			var html = '<a href="#" id="modal-open" class="btn btn-primary">Reload</a>'
 			$element.html(html)
 
-			//Check if Data already stored
-			var storageDurationString = localStorage.getItem("duration")
-
 			//Store random time
 			ReloadButtonErweiterungFSAFunc.checkIfLocalStorageisEmtpy()
 
 			// Open modal
 			$("#modal-open").click(function(event) {
 				event.preventDefault()
-
 				$(this).blur()
 
 				// Check if modal is displayed
