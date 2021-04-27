@@ -10,8 +10,7 @@
 
 define( ['jquery','qlik'], function ($, qlik) {
 
-    var app = qlik.currApp(this);
-//    console.log(app.id);
+    var app = qlik.currApp(this)
 
     function checkIfLocalStorageisEmtpy(){
         if(localStorage.getItem("duration") === null){
@@ -22,15 +21,14 @@ define( ['jquery','qlik'], function ($, qlik) {
             }
 
             localStorage.setItem("duration", JSON.stringify(storeRandomDuration))
-            return JSON.parse(localStorage.getItem("duration"));
+            return JSON.parse(localStorage.getItem("duration"))
 
         }
     }
 
     function getLastDurationTime(){
-        var reloadTime;
+        var reloadTime
         var storedValue = JSON.parse(localStorage.getItem("duration"))
-//        console.log("stored Value from function: " + storedValue)
         if (app.id === storedValue.id) {
             reloadTime = storedValue.durationTime/1000
         }
@@ -38,10 +36,10 @@ define( ['jquery','qlik'], function ($, qlik) {
     }
 
     function setUpProgressBar (tag, startTime, endTime, update){
-        var timer;
+        var timer
         var element = document.querySelector(tag)
         var maxTime = endTime - startTime
-        element.maxTime = maxTime;
+        element.maxTime = maxTime
 
         var setValue = function () {
             var currentTime = new Date().getTime()
@@ -64,4 +62,4 @@ define( ['jquery','qlik'], function ($, qlik) {
         getLastDurationTime: getLastDurationTime,
         setUpProgressBar: setUpProgressBar
     }
-});
+})
