@@ -52,7 +52,7 @@ https://www.qlik.com/de-de/trial/qlik-sense-business
 ### Tests
 Qlik Sense Sourcecode wird immer über die "define" Funktion eingeleitet. Define ist ein Konzept von RequireJS, um Abhängigkeiten im Javascript File zu definieren. In der Qlik Sense Umgebung benötigt es immer das Argument "Qlik", um alle benötigten Abhängigktein zu laden, ansonsten funktioniert der Code nicht ordnungsgemäss.
 Um die Unit Tests lokal starten zu können, muss man ein fake Modul laden. Dies muss dem Define statement als Parameter übergeben werden.
-Aus diesem Grund werden auch die Tests der CI Pipeline nicht grün.
+Aus diesem Grund werden auch die Tests der CI Pipeline nur grün, wenn das korrekte Modul mitgegeben wurde.
 
 Vorgehen Tests:
 1. Entfernen von "qlik" im define Statement im File ReloadButtonErweiterungFSAFunc.js
@@ -68,4 +68,4 @@ https://user-images.githubusercontent.com/54737475/115962449-c6074f80-a51b-11eb-
 
 ### Author
 
-S. Fluor
+Sascha Fluor
