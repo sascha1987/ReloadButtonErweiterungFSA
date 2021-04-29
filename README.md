@@ -9,7 +9,7 @@
 
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
-
+## Einleitung
 
 ### Wie kann ich die Reload Extension testen?
 
@@ -56,8 +56,8 @@ Aus diesem Grund werden auch die Tests der CI Pipeline nicht grün.
 Vorgehen Tests:
 1. Entfernen von "qlik" im define Statement im File ReloadButtonErweiterungFSAFunc.js
 2. Hinzüfugen von "./test/unit/Qlik"
-3. npm install im Terminal eingeben
-4. npm run test im Terminal eingeben
+3. ```npm install``` im Terminal eingeben
+4. ```npm run test``` im Terminal eingeben
 
 
 ### Demo
