@@ -1,14 +1,11 @@
-<h1 align="center">
-  <p="#">Erweiterung der Qlik Sense-Data-Reload Funktion</p>
-  <p="##">Diplomarbeit von S. Fluor</p>
-  <p="##">NDS HF Applikationsentwicklung</p>
-  <br><br>
-  <img src="https://www.ibw.ch/themes/custom/ibw/logo.png">
-  <br><br>
-  <p="##">Im Auftrag der</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/VP_Bank_Logo.svg" alt="Logo" height="179" width="600">
-  <br><br>
-</h1>
+# Erweiterung der Qlik Sense-Data-Reload Funktion
+## Diplomarbeit von S. Fluor
+
+## NDS HF Applikationsentwicklung
+
+### Im Auftrag der VP Bank AG
+
+
 Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
 
