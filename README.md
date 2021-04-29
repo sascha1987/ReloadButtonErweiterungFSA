@@ -1,6 +1,6 @@
 # Diplomarbeit an der Höheren Fachschule Südostschweiz
 
-## Erweiterung der Qlik Sense Data Reload Funktion!
+## Erweiterung der Qlik Sense Data Reload Funktion
 
 ## NDS HF Applikationsentwicklung
 
