@@ -66,6 +66,6 @@ Vorgehen Tests:
 https://user-images.githubusercontent.com/54737475/115962449-c6074f80-a51b-11eb-9644-d87882b04095.mov
 
 
-### Author
+### Autor
 
 Sascha Fluor
