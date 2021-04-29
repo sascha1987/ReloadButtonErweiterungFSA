@@ -1,5 +1,6 @@
-# Erweiterung der Qlik Sense-Data-Reload Funktion
-## Diplomarbeit von S. Fluor
+# Diplomarbeit an der Höheren Fachschule Südostschweiz
+
+## Erweiterung der Qlik Sense Data Reload Funktion!
 
 ## NDS HF Applikationsentwicklung
 
