@@ -7,7 +7,7 @@
 ### Im Auftrag der VP Bank AG
 
 
-Dieses Repo wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
+Dieses Repository wurde erstellt um eine Erweiterung einer Qlik Sense-Data-Reload Funktion für Qlik Sense zu erstellen.
 
 ## Einleitung
 
